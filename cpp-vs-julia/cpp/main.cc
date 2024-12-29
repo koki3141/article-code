@@ -74,15 +74,15 @@ void solve_heat_equation(Matrix& temperature, double time_step, double alpha,
 }
 
 void save_to_file(const Matrix& temperature, int timestep) {
-  std::filesystem::path dir_path = "../run";
+  std::filesystem::path dir_path = "../cpp/run";
   if (!std::filesystem::exists(dir_path)) {
       if (!std::filesystem::create_directory(dir_path)) {
-          std::cerr << "Error creating directory: " << dir_path.string() << std::endl; // .string()が必要
+          std::cerr << "Error creating directory: " << dir_path.string() << std::endl;
           exit(1);
       }
   }
 
-  std::string filename = "../run/output_" + std::to_string(timestep) + ".csv";
+  std::string filename = dir_path / ("output_" + std::to_string(timestep) + ".csv");
   std::ofstream file(filename);
   for (const auto& row : temperature) {
     std::ostringstream line;
