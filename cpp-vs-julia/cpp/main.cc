@@ -108,7 +108,7 @@ int main() {
   for (int t = 0; t < num_time_steps; ++t) {
     solve_heat_equation(temperature, time_step, alpha, deltaX, deltaY);
   //  結果の保存関数
-   save_to_file(temperature, t);
+   // save_to_file(temperature, t);
   }
   auto end_time = std::chrono::high_resolution_clock::now();
 

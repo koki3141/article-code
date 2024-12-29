@@ -78,7 +78,7 @@ end
 
 function main()
 	solution = solve_heat_equation()
-	save_animation(solution)
+	# save_animation(solution)
 	return nothing
 end
 
