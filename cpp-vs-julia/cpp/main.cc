@@ -55,18 +55,17 @@ void solve_heat_equation(Matrix& temperature, double time_step, double alpha,
   int num_x_points = temperature.size();
   int num_y_points = temperature[0].size();
   Matrix new_temperature = temperature;
-
+  double inv_delta_x2 = 1.0 / (delta_x * delta_x);
+  double inv_delta_y2 = 1.0 / (delta_y * delta_y);
   for (int i = 1; i < num_x_points - 1; ++i) {
     for (int j = 1; j < num_y_points - 1; ++j) {
       new_temperature[i][j] =
           temperature[i][j] +
           alpha * time_step *
               ((temperature[i + 1][j] - 2 * temperature[i][j] +
-                temperature[i - 1][j]) /
-                   (delta_x * delta_x) +
+                temperature[i - 1][j]) * inv_delta_x2 +
                (temperature[i][j + 1] - 2 * temperature[i][j] +
-                temperature[i][j - 1]) /
-                   (delta_y * delta_y));
+                temperature[i][j - 1]) * inv_delta_y2);
     }
   }
   apply_boundary_conditions(new_temperature);
