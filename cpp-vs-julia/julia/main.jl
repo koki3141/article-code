@@ -21,11 +21,13 @@ end
 function heat_equation_2d!(dT, T, parameters, time)
 	(; Δx, Δy, α) = parameters
 	apply_boundary_conditions!(T)
+	inv_delta_x2 = 1.0/ Δx^2;
+	inv_delta_y2 = 1.0/ Δy^2;
 	@inbounds for j in axes(T,2), i in axes(T,1)
 		(j == 1 || j == size(T, 2)) && continue
 		(i == 1 || i == size(T, 1)) && continue
-		dT[i, j] = α * ((T[i+1, j] - 2 * T[i, j] + T[i-1, j]) / Δx^2 +
-							 (T[i, j+1] - 2 * T[i, j] + T[i, j-1]) / Δy^2)
+		dT[i, j] = α * ((T[i+1, j] - 2 * T[i, j] + T[i-1, j]) * inv_delta_x2+
+							 (T[i, j+1] - 2 * T[i, j] + T[i, j-1]) * inv_delta_y2)
 	end
 	nothing
 end
