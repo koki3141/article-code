@@ -1,0 +1,25 @@
+services:
+  rrtstar-planner-on-moviet2:
+    build:
+      context: .
+      args:
+        UID: ${UID}
+        GID: ${GID}
+        USERNAME: ${USERNAME}
+        GROUPNAME: ${GROUPNAME}
+        PASSWORD: ${PASSWORD}
+    image: rrtstar_planner_on_moviet2
+    container_name: rrtstar-planner-on-moviet2
+    network_mode: host
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - type: bind
+        source: ../../rrtstar-planner-on-moviet2/
+        target: /home/${USERNAME}/workspace
+      - type: bind
+        source: ~/.ssh
+        target: /home/${USERNAME}/.ssh
+        read_only: true
+    environment:
+      - DISPLAY=$DISPLAY
+    tty: true

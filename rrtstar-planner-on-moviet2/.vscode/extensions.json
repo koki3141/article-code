@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "codezombiech.gitignore",
+    "eamodio.gitlens",
+    "github.copilot",
+    "github.copilot-chat",
+    "kaih2o.python-resource-monitor",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "njqdev.vscode-python-typehint",
+    "oderwat.indent-rainbow",
+    "streetsidesoftware.code-spell-checker",
+    "charliermarsh.ruff"
+  ]
+}

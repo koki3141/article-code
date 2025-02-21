@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ROS: Launch lbr_iiwa_rrtstar_path_planing",
+      "type": "ros",
+      "request": "launch",
+      "target": "/home/user/workspace/install/lbr_iiwa_rrtstar_path_planing/share/lbr_iiwa_rrtstar_path_planing/launch/main.launch.py",
+      "arguments": [
+        "mode:=mock",
+        "model:=iiwa7" // [iiwa7, iiwa14, med7, med14] の中から選択
+      ]
+    }
+  ]
+}

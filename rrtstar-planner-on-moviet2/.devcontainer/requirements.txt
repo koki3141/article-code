@@ -1,0 +1,12 @@
+setuptools<69
+rtree==1.2.0
+numpy
+plotly
+scipy
+overrides
+tqdm
+matplotlib
+pathlib
+pandas
+pytest
+colcon-common-extensions
