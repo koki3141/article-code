@@ -1,5 +1,5 @@
 services:
-  rrtstar-planner-on-moviet2:
+  rrtstar-planner-on-moveit2:
     build:
       context: .
       args:
